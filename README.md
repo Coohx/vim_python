@@ -11,4 +11,5 @@
 - 要求：
 >
 &emsp;&emsp;python3.5+
+>
 &emsp;&emsp;vim7.3+
