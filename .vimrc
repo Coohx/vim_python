@@ -11,36 +11,48 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead
-" o   f Plugin)
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 " code folding
 Plugin 'tmhedberg/SimpylFold'
 
+" 自动补全
+Plugin 'Valloric/YouCompleteMe'
+
 " PEP8自动缩进
 Plugin 'vim-scripts/indentpython.vim'
-
-" autoindent
-Plugin 'Valloric/YouCompleteMe'
 
 " Python sytax checker/highlight
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 
-" Colors!
+" Auto Comment 
+Plugin 'scrooloose/nerdcommenter'
+
+" Colors
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+
+" Auto Pairs
+"Plugin 'jiangmiao/auto-pairs'
+
+" Plugin on GitHub repo
+" Supertab
+"Plugin 'ervandew/supertab'
 
 " filesystem
 Plugin 'scrooloose/nerdtree'
 " tab-key brower filetree
 Plugin 'jistr/vim-nerdtree-tabs'
 
-" find file in wim:crrl+p
+" find file in vim:ctrl+p
 Plugin 'kien/ctrlp.vim'
 
 " Powerline状态栏
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+"maskdown
+Plugin 'plasticboy/vim-markdown'
 
 " git in vim
 Plugin 'tpope/vim-fugitive'
@@ -71,16 +83,21 @@ let g:SimpyFold_docstring_preview=1
 " 标示不必要的空白
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+
 " 配色方案判断逻辑
 if has('gui_running')
-  set background=dark
-  colorscheme solarized
+    set background=dark
+    colorscheme solarized
 else
-  colorscheme Zenburn
+	" Vbundle 找不到zenburn,来一句开机问候语
+    "colorscheme Zenburn
+	echo  "Welcome, Merlinhuang!"
 endif
+
 
 " Solarized方案同时提供了暗色调和轻色调两种主题。要支持切换主题功能(按F5)
 call togglebg#map("<F5>")
+
 
 " zenburn配色方案
 set t_Co=256
@@ -89,18 +106,25 @@ set t_Co=256
 " display line number
 set nu
 
+
 " 自动补全
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " 文件浏览时隐藏.pyc文件
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-            \
+
+" Supertab
+"let g:SuperTabDefaultCompletionType="<c-n>"
+"let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabContextDefaultCompletionType="<c-n>"
+
 " no swap files
 set noswapfile
 
+
 "------------Start Python PEP 8 stuff----------------
-" Number of spaces that a pre-existing tab is equal to.
+"" Number of spaces that a pre-existing tab is equal to.
 au BufNewFile,BufRead *.py,*.pyw,*.c,*.h set tabstop=4
 
 " spaces for indents
@@ -111,12 +135,11 @@ au BufNewFile,BufRead *.py,*.pyw set expandtab
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
-" The maximum length of a line 
+" The maximum length of a line
 au BufNewFile,BufRead *.py,*.pyw set textwidth=79
 
 " Keep indentation level from previous line:
 autocmd FileType python set autoindent
-
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
