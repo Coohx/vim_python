@@ -17,7 +17,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 
 " 自动补全
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+
+" Jedi - an awesome autocompletion/static analysis library for Python
+"Plugin 'davidhalter/jedi'
+
+" jedi-vim - awesome Python autocompletion with VIM
+Plugin 'davidhalter/jedi-vim'
 
 " PEP8自动缩进
 Plugin 'vim-scripts/indentpython.vim'
@@ -56,6 +62,9 @@ Plugin 'plasticboy/vim-markdown'
 
 " git in vim
 Plugin 'tpope/vim-fugitive'
+
+" A simple http/json wrapper around jedi.
+"Plugin 'vheon/JediHTTP'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -108,8 +117,10 @@ set nu
 
 
 " 自动补全
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
 
 " 文件浏览时隐藏.pyc文件
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -152,4 +163,32 @@ syntax on
 
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
+
+"<leader>
+let mapleader="\\"
+
+" Start completions
+let g:jedi#completions_command = "<C-Space>"
+
+" Go to definition (or assignment) 
+let g:jedi#goto_command = "<leader>d"
+
+" Go to original definition
+let g:jedi#goto_assignments_command = "<leader>g"
+
+" Show pydoc documentation
+let g:jedi#documentation_command = "K"
+
+" Show usages of a name.
+let g:jedi#usages_command = "<leader>n"
+
+" Rename variables 
+let g:jedi#rename_command = "<leader>r"
+
+" Go to original definition
+let g:jedi#goto_definitions_command = ""
+
+" no completion 
+"let g:jedi#completions_enabled = 0
+
 
