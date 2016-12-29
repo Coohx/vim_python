@@ -164,7 +164,7 @@ syntax on
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
 
-"<leader>
+"<leader> 相当于一个前缀
 let mapleader="\\"
 
 " Start completions
@@ -187,6 +187,9 @@ let g:jedi#rename_command = "<leader>r"
 
 " Go to original definition
 let g:jedi#goto_definitions_command = ""
+
+" use tabs when going to a definition
+"let g:jedi#use_tabs_not_buffers = 1
 
 " no completion 
 "let g:jedi#completions_enabled = 0
