@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -17,10 +17,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 
 " 自动补全
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " Jedi - an awesome autocompletion/static analysis library for Python
-"Plugin 'davidhalter/jedi'
+" Plugin 'davidhalter/jedi'
 
 " jedi-vim - awesome Python autocompletion with VIM
 Plugin 'davidhalter/jedi-vim'
@@ -40,11 +40,11 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 
 " Auto Pairs
-"Plugin 'jiangmiao/auto-pairs'
+" Plugin 'jiangmiao/auto-pairs'
 
 " Plugin on GitHub repo
 " Supertab
-"Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 
 " filesystem
 Plugin 'scrooloose/nerdtree'
@@ -57,14 +57,14 @@ Plugin 'kien/ctrlp.vim'
 " Powerline状态栏
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-"maskdown
+" markdown
 Plugin 'plasticboy/vim-markdown'
 
 " git in vim
 Plugin 'tpope/vim-fugitive'
 
 " A simple http/json wrapper around jedi.
-"Plugin 'vheon/JediHTTP'
+" Plugin 'vheon/JediHTTP'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -74,7 +74,7 @@ filetype plugin indent on    " required
 set splitbelow
 set splitright
 
-"splite navigations
+" splite navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -133,6 +133,11 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 " no swap files
 set noswapfile
 
+"------------Start Web Page Stuff--------------------
+au BufNewFile,BufRead *.js,*.html,*.css set tabstop=2
+au BufNewFile,BufRead *.js,*.html,*.css set softtabstop=2
+au BufNewFile,BufRead *.js,*.html,*.css set shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css set expandtab
 
 "------------Start Python PEP 8 stuff----------------
 "" Number of spaces that a pre-existing tab is equal to.
