@@ -199,4 +199,6 @@ let g:jedi#goto_definitions_command = ""
 " no completion 
 "let g:jedi#completions_enabled = 0
 
-
+" 支持方向键和退格键
+set nocompatible
+set backspace=2
