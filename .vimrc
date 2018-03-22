@@ -20,7 +20,7 @@ Plugin 'tmhedberg/SimpylFold'
 " Plugin 'Valloric/YouCompleteMe'
 
 " Jedi - an awesome autocompletion/static analysis library for Python
-" Plugin 'davidhalter/jedi'
+"Plugin 'davidhalter/jedi'
 
 " jedi-vim - awesome Python autocompletion with VIM
 Plugin 'davidhalter/jedi-vim'
@@ -99,14 +99,12 @@ if has('gui_running')
     colorscheme solarized
 else
 	" Vbundle 找不到zenburn,来一句开机问候语
-    "colorscheme Zenburn
-	echo  "Welcome, Merlinhuang!"
+    colorscheme zenburn
+	"echo  "Welcome, Merlin!"
 endif
-
 
 " Solarized方案同时提供了暗色调和轻色调两种主题。要支持切换主题功能(按F5)
 call togglebg#map("<F5>")
-
 
 " zenburn配色方案
 set t_Co=256
@@ -114,7 +112,6 @@ set t_Co=256
 
 " display line number
 set nu
-
 
 " 自动补全
 "let g:ycm_autoclose_preview_window_after_completion=1
@@ -200,5 +197,5 @@ let g:jedi#goto_definitions_command = ""
 "let g:jedi#completions_enabled = 0
 
 " 支持方向键和退格键
-set nocompatible
-set backspace=2
+"set nocompatible
+"set backspace=2
