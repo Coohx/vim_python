@@ -16,14 +16,14 @@ Plugin 'gmarik/Vundle.vim'
 " code folding
 Plugin 'tmhedberg/SimpylFold'
 
-" 自动补全 a code-completion engine for Vim
-Plugin 'Valloric/YouCompleteMe'
+" 自动补全
+" Plugin 'Valloric/YouCompleteMe'
 
 " Jedi - an awesome autocompletion/static analysis library for Python
 "Plugin 'davidhalter/jedi'
 
 " jedi-vim - awesome Python autocompletion with VIM
-"Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 
 " PEP8自动缩进
 Plugin 'vim-scripts/indentpython.vim'
@@ -43,8 +43,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Plugin 'jiangmiao/auto-pairs'
 
 " Plugin on GitHub repo
-
-" Supertab conflict with YCM
+" Supertab
 " Plugin 'ervandew/supertab'
 
 " filesystem
@@ -114,42 +113,10 @@ set t_Co=256
 " display line number
 set nu
 
-" YCM Conf
-
-" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-set completeopt=longest,menu,preview
-" 补全内容不以分割子窗口形式出现，只显示补全列表
-"set completeopt=preview
-
+" 自动补全
 "let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
-"ycm_extra_conf
-"let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf ='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-" 开启 YCM 基于标签引擎
-let g:ycm_collect_identifiers_from_tag_files = 1
-" 允许 vim 加载 ycm_extra_conf.py 文件，不再提示
-let g:ycm_confirm_extra_conf = 0
-" 从第2个键入字符就开始罗列匹配项
-let g:ycm_min_num_of_chars_for_completion = 2
-" 禁止缓存匹配项，每次都重新生成匹配项
-let g:ycm_cache_omnifunc = 0
-" 语法关键字补全
-let g:ycm_seed_identifiers_with_syntax = 1
-" 补全功能在注释中同样有效
-let g:ycm_complete_in_comments=1
-" 注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-
-" YCM 补全菜单配色
-" 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#205FFF guibg=#EEE8DF
-" 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#FFD700 guibg=#106900
-" 跳转快捷键
-nnoremap <leader>t :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>b :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 
 " 文件浏览时隐藏.pyc文件
@@ -199,8 +166,7 @@ syntax on
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
 
-" Jedi config
-" <leader> 相当于一个前缀
+"<leader> 相当于一个前缀
 let mapleader="\\"
 
 " Start completions
@@ -228,8 +194,8 @@ let g:jedi#goto_definitions_command = ""
 "let g:jedi#use_tabs_not_buffers = 1
 
 " no completion 
-let g:jedi#completions_enabled = 0
+"let g:jedi#completions_enabled = 0
 
-" vim8 支持方向键和退格键
-set nocompatible
-set backspace=2
+" 支持方向键和退格键
+"set nocompatible
+"set backspace=2
