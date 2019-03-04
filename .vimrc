@@ -199,34 +199,26 @@ syntax on
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
 
-" Jedi config
 " <leader> 相当于一个前缀
 let mapleader="\\"
 
+" Jedi config
 " Start completions
 let g:jedi#completions_command = "<C-Space>"
-
 " Go to definition (or assignment) 
 let g:jedi#goto_command = "<leader>d"
-
 " Go to original definition
 let g:jedi#goto_assignments_command = "<leader>g"
-
 " Show pydoc documentation
 let g:jedi#documentation_command = "K"
-
 " Show usages of a name.
 let g:jedi#usages_command = "<leader>n"
-
 " Rename variables 
 let g:jedi#rename_command = "<leader>r"
-
 " Go to original definition
 let g:jedi#goto_definitions_command = ""
-
 " use tabs when going to a definition
 "let g:jedi#use_tabs_not_buffers = 1
-
 " no completion 
 let g:jedi#completions_enabled = 0
 
