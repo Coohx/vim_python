@@ -110,22 +110,27 @@ call togglebg#map("<F5>")
 " zenburn配色方案
 set t_Co=256
 " colors  zenburn
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+" Pmenu 补全菜单配色
+" 菜单 normal item
+" VIM 命令行输入:hi 查看各种配色模式
+highlight Pmenu ctermfg=7 ctermbg=241 guifg=LightGrey guibg=DarkGrey
+" 选中项 selected item
+highlight PmenuSel ctermfg=15 ctermbg=5  guifg=White guibg=Red
+" 滚动条 PmenuSbar scrollbar
+highlight PmenuSbar ctermfg=5 ctermbg=241 guifg=White guibg=Red
+" PmenuThumb Thumb of the scrollbar
+highlight PmenuThumb ctermfg=15 ctermbg=5 guifg=White guibg=Red
 
 " display line number
 set nu
 
-" YCM Conf
-
-" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-set completeopt=longest,menu,preview
-" 补全内容不以分割子窗口形式出现，只显示补全列表
-"set completeopt=preview
-
-"let g:ycm_autoclose_preview_window_after_completion=1
+" YCM Configure
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
 "ycm_extra_conf
-"let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
-let g:ycm_global_ycm_extra_conf ='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
+"let g:ycm_global_ycm_extra_conf ='~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 " 开启 YCM 基于标签引擎
 let g:ycm_collect_identifiers_from_tag_files = 1
 " 允许 vim 加载 ycm_extra_conf.py 文件，不再提示
@@ -141,11 +146,25 @@ let g:ycm_complete_in_comments=1
 " 注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
 
-" YCM 补全菜单配色
-" 菜单
-highlight Pmenu ctermfg=2 ctermbg=3 guifg=#205FFF guibg=#EEE8DF
-" 选中项
-highlight PmenuSel ctermfg=2 ctermbg=3 guifg=#FFD700 guibg=#106900
+" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
+set completeopt=longest,menu
+" 补全内容不以分割子窗口形式出现，只显示补全列表
+"set completeopt-=preview
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+" 离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" 回车即选中当前项
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+"inoremap <leader><leader> <C-x><C-o>
+" 主动补全, 默认为<C-Space>
+"let g:ycm_key_invoke_completion = ['<C-Space>']
+" 停止显示补全列表(防止列表影响视野), 可以按<C-Space>重新弹出
+let g:ycm_key_list_stop_completion = ['<C-y>']
+" error flag
+let g:ycm_error_symbol = '>>'
+" Warning flag
+let g:ycm_warning_symbol = '>*'
 " 跳转快捷键
 nnoremap <leader>t :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
@@ -178,8 +197,6 @@ au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py,*.pyw set shiftwidth=4
 au BufNewFile,BufRead *.py,*.pyw set expandtab
 
-" Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
 
 " The maximum length of a line
 au BufNewFile,BufRead *.py,*.pyw set textwidth=79
@@ -202,21 +219,21 @@ nmap <F3> :NERDTree <CR>
 " <leader> 相当于一个前缀
 let mapleader="\\"
 
-" Jedi config
+" Jedi-vim config
 " Start completions
-let g:jedi#completions_command = "<C-Space>"
+"let g:jedi#completions_command = "<C-Space>"
 " Go to definition (or assignment) 
-let g:jedi#goto_command = "<leader>d"
+"let g:jedi#goto_command = "<leader>d"
 " Go to original definition
-let g:jedi#goto_assignments_command = "<leader>g"
+"let g:jedi#goto_assignments_command = "<leader>g"
 " Show pydoc documentation
-let g:jedi#documentation_command = "K"
+"let g:jedi#documentation_command = "K"
 " Show usages of a name.
-let g:jedi#usages_command = "<leader>n"
+"let g:jedi#usages_command = "<leader>n"
 " Rename variables 
-let g:jedi#rename_command = "<leader>r"
+"let g:jedi#rename_command = "<leader>r"
 " Go to original definition
-let g:jedi#goto_definitions_command = ""
+"let g:jedi#goto_definitions_command = ""
 " use tabs when going to a definition
 "let g:jedi#use_tabs_not_buffers = 1
 " no completion 
