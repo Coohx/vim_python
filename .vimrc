@@ -159,8 +159,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 "inoremap <leader><leader> <C-x><C-o>
 " 主动补全, 默认为<C-Space>
 "let g:ycm_key_invoke_completion = ['<C-Space>']
-" 停止显示补全列表(防止列表影响视野), 可以按<C-Space>重新弹出
-let g:ycm_key_list_stop_completion = ['<C-y>']
+" 回车<CR>强制停止显示补全列表(防止列表影响视野)
+let g:ycm_key_list_stop_completion = ['<CR>']
 " error flag
 let g:ycm_error_symbol = '>>'
 " Warning flag
@@ -190,13 +190,18 @@ au BufNewFile,BufRead *.js,*.html,*.css set expandtab
 
 "------------Start Python PEP 8 stuff----------------
 "" Number of spaces that a pre-existing tab is equal to.
-au BufNewFile,BufRead *.py,*.pyw,*.c,*.h set tabstop=4
+au BufNewFile,BufRead *.py,*.pyw,*.c,*.h,*.sh set tabstop=4
 
 " spaces for indents
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py,*.pyw set shiftwidth=4
 au BufNewFile,BufRead *.py,*.pyw set expandtab
 
+"------------Start Shell Script Stuff--------------------
+au BufNewFile,BufRead *.sh set tabstop=4
+au BufNewFile,BufRead *.sh set softtabstop=4
+au BufNewFile,BufRead *.sh set shiftwidth=4
+au BufNewFile,BufRead *.sh set expandtab
 
 " The maximum length of a line
 au BufNewFile,BufRead *.py,*.pyw set textwidth=79
