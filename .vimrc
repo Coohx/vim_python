@@ -123,8 +123,23 @@ highlight PmenuSbar ctermfg=5 ctermbg=241 guifg=White guibg=Red
 " PmenuThumb Thumb of the scrollbar
 highlight PmenuThumb ctermfg=15 ctermbg=5 guifg=White guibg=Red
 
+
+" 辅助信息
 " display line number
 set nu
+" 总是显示状态栏
+set laststatus=2
+" 显示光标当前位置
+set ruler
+" 开启行号显示
+set number
+" 高亮显示当前行/列
+set cursorline
+set cursorcolumn
+" 高亮显示搜索结果
+set hlsearch
+
+
 
 " YCM Configure
 let g:ycm_python_binary_path = '/usr/local/bin/python3'
@@ -247,3 +262,21 @@ let g:jedi#completions_enabled = 0
 " vim8 支持方向键和退格键
 set nocompatible
 set backspace=2
+
+
+" flake8
+" auto call flake8
+"autocmd BufWritePost *.py call flake8#Flake8()
+
+" flake8 highlight
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
+
+
+" config for NERD Commenter
+" Add spaces after comment delimiters by default
+" let g:NERDSpaceDelims = 1
+
