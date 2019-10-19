@@ -1,6 +1,6 @@
-set nocompatible              " required
-filetype off                  " required
-
+set nocompatible            " required
+" 开启文件类型那个侦测
+filetype on                 " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -28,6 +28,9 @@ Plugin 'Valloric/YouCompleteMe'
 " PEP8自动缩进
 Plugin 'vim-scripts/indentpython.vim'
 
+" view indent
+Plugin 'nathanaelkane/vim-indent-guides'
+
 " Python sytax checker/highlight
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
@@ -38,6 +41,8 @@ Plugin 'scrooloose/nerdcommenter'
 " Colors
 Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tomasr/molokai'
+Plugin 'vim-scripts/phd'
 
 " Auto Pairs
 " Plugin 'jiangmiao/auto-pairs'
@@ -69,7 +74,18 @@ Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
 filetype plugin indent on    " required
+" 根据侦测到的不同类型加载对应的插件
+filetype plugin on
+
+" <leader> vim自定义前缀键
+let mapleader=";"
+
+" save and quit vim with q key.
+nmap <leader>q :wq<CR>
+nmap <leader>w :w<CR>
+nmap <leader>Q :q!<CR>
 
 " 指定屏幕上可以进行分割布局的区域
 set splitbelow
@@ -80,6 +96,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" 自动加载.vimrc配置,立即生效
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Enable dolding
 set foldmethod=indent
@@ -96,13 +115,19 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " 配色方案判断逻辑
 if has('gui_running')
-    set background=dark
-    colorscheme solarized
+     set background=dark
+     colorscheme solarized
 else
-	" Vbundle 找不到zenburn,来一句开机问候语
-    colorscheme zenburn
-	"echo  "Welcome, Merlin!"
+     set background=dark
+     colorscheme molokai
+     " colorscheme zenburn
 endif
+" 配色方案
+" set background=dark
+" colorscheme solarized
+" colorscheme zenburn
+" colorscheme molokai
+" colorscheme phd
 
 " Solarized方案同时提供了暗色调和轻色调两种主题。要支持切换主题功能(按F5)
 call togglebg#map("<F5>")
@@ -138,7 +163,6 @@ set cursorline
 set cursorcolumn
 " 高亮显示搜索结果
 set hlsearch
-
 
 
 " YCM Configure
@@ -231,13 +255,22 @@ set encoding=utf-8
 
 " For full syntax highlighting:
 let python_highlight_all=1
+syntax enable
 syntax on
+
 
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
-
-" <leader> 相当于一个前缀
-let mapleader="\\"
+" 设置NERDTree子窗口宽度
+let NERDTreeWinSize=24
+" 设置NERDTree子窗口位置
+let NERDTreeWinPos="right"
+" 显示隐藏文件
+"let NERDTreeShowHidden=1
+" NERDTree 子窗口中不显示冗余帮助信息
+let NERDTreeMinimalUI=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
 
 " Jedi-vim config
 " Start completions
@@ -279,4 +312,15 @@ highlight link Flake8_PyFlake    WarningMsg
 " config for NERD Commenter
 " Add spaces after comment delimiters by default
 " let g:NERDSpaceDelims = 1
+
+
+"view indent
+" 随 vim 自启动
+"let g:indent_guides_enable_on_vim_startup=1
+" 从第二层开始可视化显示缩进
+"let g:indent_guides_start_level=2
+" 色块宽度
+"let g:indent_guides_guide_size=1
+" 快捷键 i 开/关缩进可视化
+"nmap <silent> <Leader>i <Plug>IndentGuidesToggle
 
