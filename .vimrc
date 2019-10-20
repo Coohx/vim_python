@@ -137,14 +137,15 @@ set t_Co=256
 " colors  zenburn
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
+
 " Pmenu 补全菜单配色
 " 菜单 normal item
 " VIM 命令行输入:hi 查看各种配色模式
-highlight Pmenu ctermfg=7 ctermbg=241 guifg=LightGrey guibg=DarkGrey
+highlight Pmenu ctermfg=81 ctermbg=241 guifg=LightGrey guibg=DarkGrey
 " 选中项 selected item
-highlight PmenuSel ctermfg=15 ctermbg=5  guifg=White guibg=Red
+highlight PmenuSel ctermfg=255 ctermbg=235  guifg=White guibg=Red
 " 滚动条 PmenuSbar scrollbar
-highlight PmenuSbar ctermfg=5 ctermbg=241 guifg=White guibg=Red
+highlight PmenuSbar ctermfg=162 ctermbg=162 guifg=White guibg=Red
 " PmenuThumb Thumb of the scrollbar
 highlight PmenuThumb ctermfg=15 ctermbg=5 guifg=White guibg=Red
 
@@ -316,11 +317,15 @@ highlight link Flake8_PyFlake    WarningMsg
 
 "view indent
 " 随 vim 自启动
-"let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
-"let g:indent_guides_start_level=2
+let g:indent_guides_start_level=2
 " 色块宽度
-"let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size=1
 " 快捷键 i 开/关缩进可视化
-"nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+:nmap <silent> <Leader>i <Plug>IndentGuidesToggle
+" setting custom indent colors
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  guibg=red  ctermbg=235
+hi IndentGuidesEven guibg=red  ctermbg=235
 
