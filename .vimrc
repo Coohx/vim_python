@@ -32,7 +32,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " Python sytax checker/highlight
-Plugin 'nvie/vim-flake8'
+"Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 " Python sytax self hi
 Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
