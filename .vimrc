@@ -120,8 +120,9 @@ if has('gui_running')
      set background=dark
      colorscheme solarized
 else
-     set background=dark
+     "set background=dark
      colorscheme molokai
+     let g:molokai_original = 1
      " colorscheme zenburn
 endif
 " 配色方案
@@ -317,7 +318,7 @@ highlight link Flake8_PyFlake    WarningMsg
 " let g:NERDSpaceDelims = 1
 
 
-"view indent
+" view indent
 " 随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
 " 从第二层开始可视化显示缩进
@@ -333,4 +334,6 @@ hi IndentGuidesEven guibg=red  ctermbg=235
 
 " python-mode config
 hi pythonSelf       ctermfg=208
+" python3 syntax
+let g:pymode_python = 'python3'
 
