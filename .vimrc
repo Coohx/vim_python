@@ -34,6 +34,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Python sytax checker/highlight
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
+" Python sytax self hi
+Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Auto Comment 
 Plugin 'scrooloose/nerdcommenter'
@@ -328,4 +330,7 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  guibg=red  ctermbg=235
 hi IndentGuidesEven guibg=red  ctermbg=235
+
+" python-mode config
+hi pythonSelf       ctermfg=208
 
