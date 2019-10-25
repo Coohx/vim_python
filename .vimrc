@@ -32,7 +32,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " Python sytax checker/highlight
-"Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/syntastic'
 " Python sytax self hi
 Plugin 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
@@ -211,7 +211,7 @@ let g:ycm_warning_symbol = '>*'
 " 跳转快捷键
 nnoremap <leader>t :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>b :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " 文件浏览时隐藏.pyc文件
@@ -332,8 +332,14 @@ let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  guibg=red  ctermbg=235
 hi IndentGuidesEven guibg=red  ctermbg=235
 
+
 " python-mode config
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 hi pythonSelf       ctermfg=208
 " python3 syntax
 let g:pymode_python = 'python3'
+
+" syntastic config
+let g:syntastic_python_checkers = ['flake8']
 
