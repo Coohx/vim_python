@@ -339,6 +339,8 @@ let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 hi pythonSelf       ctermfg=208
 " python3 syntax
 let g:pymode_python = 'python3'
+" run window
+let g:pymode_preview_height = 7
 
 " syntastic config
 let g:syntastic_python_checkers = ['flake8']
