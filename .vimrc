@@ -139,18 +139,18 @@ call togglebg#map("<F5>")
 set t_Co=256
 " colors  zenburn
 " Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
+highlight BadWhitespace ctermbg=238 guibg=red
 
 " Pmenu 补全菜单配色
 " 菜单 normal item
 " VIM 命令行输入:hi 查看各种配色模式
-highlight Pmenu ctermfg=81 ctermbg=241 guifg=LightGrey guibg=DarkGrey
+highlight Pmenu ctermfg=166 ctermbg=238 guifg=LightGrey guibg=DarkGrey
 " 选中项 selected item
-highlight PmenuSel ctermfg=255 ctermbg=235  guifg=White guibg=Red
-" 滚动条 PmenuSbar scrollbar
-highlight PmenuSbar ctermfg=162 ctermbg=162 guifg=White guibg=Red
-" PmenuThumb Thumb of the scrollbar
-highlight PmenuThumb ctermfg=15 ctermbg=5 guifg=White guibg=Red
+highlight PmenuSel ctermfg=135 ctermbg=24 cterm=bold guifg=White guibg=Red
+" 滚动条底部背景色 ctermbg
+highlight PmenuSbar ctermfg=135 ctermbg=236 guifg=White guibg=Red
+" 滚动条自身背景色 ctermbg
+highlight PmenuThumb ctermfg=15 ctermbg=135 guifg=White guibg=Red
 
 
 " 辅助信息
@@ -272,7 +272,7 @@ let NERDTreeWinPos="right"
 " 显示隐藏文件
 "let NERDTreeShowHidden=1
 " NERDTree 子窗口中不显示冗余帮助信息
-let NERDTreeMinimalUI=1
+let NERDTreeMinimalUI=0
 " 删除文件时自动删除文件对应 buffer
 let NERDTreeAutoDeleteBuffer=1
 
