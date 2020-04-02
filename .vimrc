@@ -266,9 +266,9 @@ syntax on
 " Quick start NERDTree:F3
 nmap <F3> :NERDTree <CR>
 " 设置NERDTree子窗口宽度
-let NERDTreeWinSize=24
+let NERDTreeWinSize=28
 " 设置NERDTree子窗口位置
-let NERDTreeWinPos="right"
+" let NERDTreeWinPos="right"
 " 显示隐藏文件
 "let NERDTreeShowHidden=1
 " NERDTree 子窗口中不显示冗余帮助信息
