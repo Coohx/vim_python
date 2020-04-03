@@ -345,3 +345,31 @@ let g:pymode_preview_height = 7
 " syntastic config
 let g:syntastic_python_checkers = ['flake8']
 
+
+" auto add python header --start
+autocmd BufNewFile *.py 0r ~/.vim/vim_template/vim_pyhton_header
+autocmd BufNewFile *.py ks|call FileName()|'s
+autocmd BufNewFile *.py ks|call CreatedTime()|'s
+" auto add shell header --start
+autocmd BufNewFile *.sh 0r ~/.vim/vim_template/vim_header_for_sh
+autocmd BufNewFile *.sh ks|call FileName()|'s
+autocmd BufNewFile *.sh ks|call CreatedTime()|'s
+
+fun FileName()
+	if line("$") >10
+		let l = 10
+	else
+		let l = line("$")
+	endif
+	exe "1," . l . "g/@File Name:.*/s/@File Name:.*/@File Name: " .expand("%")
+endfun
+
+fun CreatedTime()
+	if line("$") > 10
+		let l = 10
+	else
+		let l = line("$")
+	endif
+	exe "1," . l . "g/@Created Time:.*/s/@Created Time:.*/@Created Time: " .strftime("%Y-%m-%d %T")
+endfun
+" end auto add file header
