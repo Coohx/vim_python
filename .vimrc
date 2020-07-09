@@ -208,10 +208,18 @@ let g:ycm_key_list_stop_completion = ['<CR>']
 let g:ycm_error_symbol = '>>'
 " Warning flag
 let g:ycm_warning_symbol = '>*'
+" 开启YCM的显示诊断信息的功能，0表示关闭
+let g:ycm_show_diagnostics_ui = 1
+" 在代码中高亮显示YCM诊断对应的内容，如果关闭，则会关闭错误和警告高亮功能，0表示关闭
+let g:ycm_enable_diagnostic_signs = 1
+" 当光标移到所在行时显示诊断信息
+let g:ycm_echo_current_diagnostic = 1
 " 跳转快捷键
 nnoremap <leader>t :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" search all file Referencing the current object
+nnoremap <leader>a :YcmCompleter GoToReferences<CR>
 
 
 " 文件浏览时隐藏.pyc文件
