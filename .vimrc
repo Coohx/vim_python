@@ -352,7 +352,14 @@ let g:pymode_preview_height = 7
 
 " syntastic config
 let g:syntastic_python_checkers = ['flake8']
-
+" code checking
+let g:pymode_lint_on_fly = 0
+" Skip errors and warnings
+" let g:pymode_lint_ignore = ["E501", "W",]
+" auto fix 
+nnoremap <leader>l :PymodeLintAuto<CR>
+" Auto open quickfix if any errors have been found
+let g:pymode_lint_cwindow = 0
 
 " auto add python header --start
 autocmd BufNewFile *.py 0r ~/.vim/vim_template/vim_pyhton_header
