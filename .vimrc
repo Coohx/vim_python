@@ -355,7 +355,7 @@ let g:syntastic_python_checkers = ['flake8']
 " code checking
 let g:pymode_lint_on_fly = 0
 " Skip errors and warnings
-" let g:pymode_lint_ignore = ["E501", "W",]
+" let g:pymode_lint_ignore = ["W391", "W",]
 " auto fix 
 nnoremap <leader>l :PymodeLintAuto<CR>
 " Auto open quickfix if any errors have been found
