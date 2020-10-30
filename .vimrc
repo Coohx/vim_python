@@ -388,3 +388,6 @@ fun CreatedTime()
 	exe "1," . l . "g/@Created Time:.*/s/@Created Time:.*/@Created Time: " .strftime("%Y-%m-%d %T")
 endfun
 " end auto add file header
+
+" set Paste
+set pastetoggle=<F12>
