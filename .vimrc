@@ -160,8 +160,10 @@ set nu
 set laststatus=2
 " 显示光标当前位置
 set ruler
-" 开启行号显示
+" 开启绝对行号显示
 set number
+" 开启相对行号显示
+set relativenumber
 " 高亮显示当前行/列
 set cursorline
 set cursorcolumn
